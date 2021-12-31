@@ -1,0 +1,55 @@
+
+<html lang="en">
+    
+<%- include("./partials/head.ejs") %>
+
+<body>
+    <div class="header">
+   <div class="container">
+<div class="navbar">
+    <div class="logo">
+        <a href="index.ejs"></a>
+
+    </div>
+    <%- include("./partials/nav.ejs") %>
+    
+    <img src="/geanta.jpg" width="30px" height="30px">
+    
+    </div>
+<div class="row">
+    <div class="col-2">
+        <h1>Making sure you feel as good as you look.</h1>
+        <p>We know you have a choice. Thank you for choosing us.</p>
+
+    </div>
+    <div class="col-2">    
+   <img src="/Pharmacy-background-2.jpg" width="100%">
+     
+        </div>
+    </div>
+    </div>
+    </div>
+
+
+
+
+
+
+    <!------js for toggle menu----->
+    <script>
+        var MenuItems = document.getElementById("MenuItems");
+        MenuItems.style.maxHeight = "0px";
+        function menutoggle(){
+            if(MenuItems.style.maxHeight == "0px")
+                {
+                    MenuItems.style.maxHeight = "200px";
+                }
+            else{
+                MenuItems.style.maxHeight = "0px";
+                
+            }
+        }
+    </script>
+</body>
+
+</html>
