@@ -29,58 +29,21 @@
          <th></th>
          
        </tr>
+       <% if(companie.length == 0) { %>
+        <h4 class= 'font-weight-light text-muted font-italic'> The list it's empty right now.</h4>
+        <% } %>
+<% for(var i = 0; i < companie.length; i++) { %>
        <tr>
-         <td>3</td>
-         <td>HOFFMANN LA ROCHE</td>
-         <td>0712345678</td>
-         <td>Strada Cetatii</td>
-         <td>Moldovan Gabriela</td>
-          <td> <button style="background: #a2baaf; padding: 5px 20px; margin:20px 0;border-radius: 20px;"> <i class="fa fa-eye"></i><button class="btn1"><i class="fa fa-trash"></i></button></td>
-       </tr>
-       <tr>
-	<td>1</td>
-         <td>BIOFARM</td>
-         <td>0748932493</td>
-         <td>Strada Regina Maria</td>
-         <td>Mugur Marina</td>
-          <td> <button style="background: #a2baaf; padding: 5px 20px; margin:20px 0;border-radius: 20px;"> <i class="fa fa-eye"></i><button class="btn1"><i class="fa fa-trash"></i></button></td>
-       </tr>
-       <tr>
-	<td>5</td>
-         <td>MEDOCHEMIE</td>
-         <td>0749834895</td>
-         <td>Unirii</td>
-         <td>Ionescu Eduard</td>
-          <td> <button style="background: #a2baaf; padding: 5px 20px; margin:20px 0;border-radius: 20px;"> <i class="fa fa-eye"></i><button class="btn1"><i class="fa fa-trash"></i></button></td>
-       </tr>
-       <tr>
-	<td>1</td>
-         <td>BIO PHARMA</td>
-         <td>0792447305</td>
-         <td>Srada Lunei</td>
-         <td>Nicolae Paulescu</td>
+        <td><%= companie[i]._id %></td>
+        <td><%= companie[i].nume_comp %></td>
+        <td><%= companie[i].nr_telefon %></td>
+        <td><%= companie[i].adressa %></td>
+        <td><%= companie[i].nume_manager %></td>
          <td> <button style="background: #a2baaf; padding: 5px 20px; margin:20px 0;border-radius: 20px;"> <i class="fa fa-eye"></i><button class="btn1"><i class="fa fa-trash"></i></button></td>
-       </tr>
-       <tr>
-	<td>7</td>
-         <td>NYCOMED</td>
-         <td>0723920492</td>
-         <td>Strada Livezii</td>
-         <td>Popescu Daniel</td>
-          <td> <button style="background: #a2baaf; padding: 5px 20px; margin:20px 0;border-radius: 20px;"> <i class="fa fa-eye"></i><button class="btn1"><i class="fa fa-trash"></i></button></td>
-       </tr>
-       <tr>
-	<td>4</td>
-         <td>BRISTOL MYERS SQUIBB</td>
-         <td>0732808124</td>
-         <td>Strada Gloria</td>
-         <td>Zsolt Szabo</td>
-         <td> <button style="background: #a2baaf; padding: 5px 20px; margin:20px 0;border-radius: 20px;"> <i class="fa fa-eye"></i><button class="btn1"><i class="fa fa-trash"></i></button></td>
-       </tr>
+      </tr>
+      <% } %>
      </table>
-	<button type="button" class="btn btn-info btn-lg">
-          <span class="glyphicon glyphicon-plus-sign"></span> Adauga o companie
-        </button>
+	<a href="/add-companie" class="btn btn-info btn-lg">Adauga o companie</a>
      
      </body>
      </html>

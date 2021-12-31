@@ -1,0 +1,33 @@
+<html lang="en">
+<%- include("./partials/head.ejs") %>
+
+<body>
+  <div class="header">
+    <div class="container">
+ <div class="navbar">
+     <div class="logo">
+         <a href="index.ejs"></a>
+ 
+     </div>
+     </div>
+     </div>
+
+
+  <%- include("./partials/nav.ejs") %>
+
+  <div class="form-prod">
+    <form action="/customers" method="POST">
+      <label for="nume_comp">Nume Companie:</label>
+      <input type="text" id="nume_comp" name="nume_comp" required>
+      <label for="nr_telefon">Nr telefon:</label>
+      <input type="text" id="nr_telefon" name="nr_telefon" required>
+      <label for="adressa">Adresa:</label>
+      <input type="text" id="adressa" name="adressa" required>
+      <label for="nume_manager">Nume Manager:</label>
+      <input type="text" id="nume_manager" name="nume_manager" required>
+      
+      <button class="btn" >ADAUGA</button>
+    </form>
+  </div>
+</body>
+</html>

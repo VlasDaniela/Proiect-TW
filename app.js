@@ -48,23 +48,23 @@ app.get('/all-produse',(req,res)=>{
         .catch((err)=>{
             console.log(err);
         })
-});*/
-app.get('/add-companie',(req,res)=>{
-    const companie = new Companie({
+});
+app.get('/add-s',(req,res)=>{
+    const s = new s({
         nume_comp: 'HOFFMANN LA ROCHE',	
         nr_telefon: '0712345678',
         adressa: 'Strada Cetatii',
         nume_manager: 'Moldovan Gabriela'
     })
     
-    companie.save()
+    s.save()
         .then((result)=>{
             res.send(result)
         })
         .catch((err)=>{
             console.log(err);
         })
-});
+});*/
 
 
 app.get('/',(req,res) => {
@@ -105,10 +105,32 @@ app.post('/Stock', (req, res) => {
         console.log(err);
       });
   });
+  app.post('/customers', (req, res) => {
+    // console.log(req.body);
+    const companie= new Companie(req.body);
+  
+    companie.save()
+      .then(result => {
+        res.redirect('/customers');
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  });
 
 app.get('/customers',(req,res) => {
-    res.render('customers');
+    db.collection('companies').find().toArray()
+    .then((results)=>{
+        res.render('customers.ejs',{ companie: results})
+    })
+    .catch((err)=>{
+        console.log(err);
+    })
+    // res.render('customers');
 });
 app.get('/add-produs',(req,res) => {
     res.render('add-produs');
+});
+app.get('/add-companie',(req,res) => {
+    res.render('add-companie');
 });
