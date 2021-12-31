@@ -2,10 +2,21 @@
 <%- include("./partials/head.ejs") %>
 
 <body>
+  <div class="header">
+    <div class="container">
+ <div class="navbar">
+     <div class="logo">
+         <a href="index.ejs"></a>
+ 
+     </div>
+     </div>
+     </div>
+
+
   <%- include("./partials/nav.ejs") %>
 
-  <div class="form-container">
-    <form action="/produse" method="POST">
+  <div class="form-prod">
+    <form action="/Stock" method="POST">
       <label for="title">Nume produs:</label>
       <input type="text" id="title" name="title" required>
       <label for="expir_date">Data Expirare</label>
@@ -14,7 +25,8 @@
       <input type="text" id="cantitate" name="cantitate" required>
       <label for="price">Pret:</label>
       <input type="text" id="price" name="price" required>
-      <button>Submit</button>
+      
+      <button class="btn" >ADAUGA</button>
     </form>
   </div>
 </body>

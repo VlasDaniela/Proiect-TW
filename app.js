@@ -21,9 +21,10 @@ app.set('view engine', 'ejs');
 
 //middleware & static files
 app.use(express.static('public'));
+app.use(express.urlencoded({ extended: true }));
 app.use(morgan('dev'));
 
-app.get('/add-produs',(req,res)=>{
+/*app.get('/add-produs',(req,res)=>{
     const produs = new Produs({
         title:'Ziant',
         price:'21' ,
@@ -47,7 +48,7 @@ app.get('/all-produse',(req,res)=>{
         .catch((err)=>{
             console.log(err);
         })
-});
+});*/
 app.get('/add-companie',(req,res)=>{
     const companie = new Companie({
         nume_comp: 'HOFFMANN LA ROCHE',	
@@ -92,6 +93,22 @@ app.get('/Stock',(req,res) => {
         })
    /* res.render('Stock');*/
 });
+app.post('/Stock', (req, res) => {
+    // console.log(req.body);
+    const produs = new Produs(req.body);
+  
+    produs.save()
+      .then(result => {
+        res.redirect('/Stock');
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  });
+
 app.get('/customers',(req,res) => {
     res.render('customers');
+});
+app.get('/add-produs',(req,res) => {
+    res.render('add-produs');
 });
