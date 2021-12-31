@@ -2,6 +2,7 @@ const express= require('express');
 const morgan= require('morgan');
 const mongoose = require('mongoose');
 const Produs = require('./models/produs');
+const { db } = require('./models/produs');
 
 
 
@@ -54,7 +55,14 @@ app.get('/index',(req,res) => {
     res.render('index');
 });
 app.get('/produse',(req,res) => {
-    res.render('produse');
+    db.collection('produs').find().toArray()
+        .then((results)=>{
+            res.render('produse.ejs',{ produs: results})
+        })
+        .catch((err)=>{
+            console.log(err);
+        })
+    /*res.render('produse');*/
 });
 app.get('/Stock',(req,res) => {
     res.render('Stock');
