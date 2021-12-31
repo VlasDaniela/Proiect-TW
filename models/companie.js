@@ -2,24 +2,24 @@ const mongoose = require('mongoose');
 const { required } = require('nodemon/lib/config');
 const Schema = mongoose.Schema;
 
-const produsSchema = new Schema({
-    title: {
+const companieSchema = new Schema({
+    nume_comp: {
         type: String,
         required: true
     },
-    price: {
+    nr_telefon: {
         type: String,
         required: true
     },
-    cantitate: {
+    adressa: {
         type: String,
         required: true
     },
-    expir_date: {
+    nume_manager: {
         type: String,
         required: true
     }
 }, {timestamps: true});
 
-const Produs = mongoose.model('Produs', produsSchema);
-module.exports = Produs;
+const Companie = mongoose.model('Companie', companieSchema);
+module.exports = Companie;

@@ -18,67 +18,33 @@
 
      </div>
      <h2>Stock Produse</h2>
-     <input type="button" class="btn" value="Adauga Produs">
+     <a href="/add-produs" class="btn">Adauga Produs</a>
      <table>
-       <tr>
-         <th>Nume Produs</th>
-         <th>Data expirarii</th>
-         <th>Cantitate</th>
-         <th>Id</th>
-         <th>Pret</th>
-         <th></th>
-         
-       </tr>
-       <tr>
-         <td>Furazolidon</td>
-         <td>12.12.2021</td>
-         <td>400</td>
-         <td>22131</td>
-         <td>20</td>
-          <td><input type="button" class="button1" value="Modifica Produs"><input type="button" class="button2" value="Sterge Produs"></td>
-       </tr>
-       <tr>
-         <td>Nospa</td>
-         <td>23.12.2021.</td>
-         <td>200</td>
-         <td>10231</td>
-         <td>30</td>
-          <td><input type="button" class="button1" value="Modifica Produs"><input type="button" class="button2" value="Sterge Produs"></td>
-       </tr>
-       <tr>
-         <td>Algocalmin</td>
-         <td>01.03.2022</td>
-         <td>450</td>
-         <td>7890</td>
-         <td>30</td>
-          <td><input type="button" class="button1" value="Modifica Produs"><input type="button" class="button2" value="Sterge Produs"></td>
-       </tr>
-       <tr>
-         <td>Dicarbocalm</td>
-         <td>02.02.2022</td>
-         <td>320</td>
-         <td>693221</td>
-         <td>42</td>
-          <td><input type="button" class="button1" value="Modifica Produs"><input type="button" class="button2" value="Sterge Produs"></td>
-       </tr>
-       <tr>
-         <td>ParaSinus</td>
-         <td>29.12.2021</td>
-         <td>300</td>
-         <td>7432</td>
-         <td>50</td>
-          <td><input type="button" class="button1" value="Modifica Produs"><input type="button" class="button2" value="Sterge Produs"></td>
-       </tr>
-       <tr>
-         <td>Ziant</td>
-         <td>02.01.2022</td>
-         <td>840</td>
-         <td>32124</td>
-         <td>21</td>
-         <td><input type="button" class="button1" value="Modifica Produs"><input type="button" class="button2" value="Sterge Produs"></td>
-       </tr>
+      <tr>
+        <th>Nume Produs</th>
+        <th>Data expirarii</th>
+        <th>Cantitate</th>
+        <th>Id</th>
+        <th>Pret</th>
+        <th></th>
+        
+      </tr>
+      <% if(produs.length == 0) { %>
+        <h4 class= 'font-weight-light text-muted font-italic'> The list it's empty right now.</h4>
+        <% } %>
+<% for(var i = 0; i < produs.length; i++) { %>
+  <tr>
+    <td><%= produs[i].title %></td>
+    <td><%= produs[i].expir_date %></td>
+    <td><%= produs[i].cantitate %></td>
+    <td><%= produs[i]._id %></td>
+    <td><%= produs[i].price %></td>
+    <td><input type="button" class="button1" value="Modifica Produs"><input type="button" class="button2" value="Sterge Produs"></td>
+    
+  </tr>
+<% } %>             
      </table>
-     
+
      </body>
      </html>
      

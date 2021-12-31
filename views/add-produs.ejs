@@ -1,0 +1,21 @@
+<html lang="en">
+<%- include("./partials/head.ejs") %>
+
+<body>
+  <%- include("./partials/nav.ejs") %>
+
+  <div class="form-container">
+    <form action="/produse" method="POST">
+      <label for="title">Nume produs:</label>
+      <input type="text" id="title" name="title" required>
+      <label for="expir_date">Data Expirare</label>
+      <input type="text" id="expir_date" name="expir_date" required>
+      <label for="cantitate">Cantitate:</label>
+      <input type="text" id="cantitate" name="cantitate" required>
+      <label for="price">Pret:</label>
+      <input type="text" id="price" name="price" required>
+      <button>Submit</button>
+    </form>
+  </div>
+</body>
+</html>

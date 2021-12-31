@@ -3,6 +3,7 @@ const morgan= require('morgan');
 const mongoose = require('mongoose');
 const Produs = require('./models/produs');
 const { db } = require('./models/produs');
+const Companie = require('./models/companie');
 
 
 
@@ -24,11 +25,12 @@ app.use(morgan('dev'));
 
 app.get('/add-produs',(req,res)=>{
     const produs = new Produs({
-        title:'ColdrexGripaSiRaceala',
-        price:'13.5' ,
-        cantitate: '3'
-    });
-
+        title:'Ziant',
+        price:'21' ,
+        cantitate: '800',
+        expir_date: '02.01.2022'
+    })
+    
     produs.save()
         .then((result)=>{
             res.send(result)
@@ -39,6 +41,22 @@ app.get('/add-produs',(req,res)=>{
 });
 app.get('/all-produse',(req,res)=>{
     Produs.find()
+        .then((result)=>{
+            res.send(result)
+        })
+        .catch((err)=>{
+            console.log(err);
+        })
+});
+app.get('/add-companie',(req,res)=>{
+    const companie = new Companie({
+        nume_comp: 'HOFFMANN LA ROCHE',	
+        nr_telefon: '0712345678',
+        adressa: 'Strada Cetatii',
+        nume_manager: 'Moldovan Gabriela'
+    })
+    
+    companie.save()
         .then((result)=>{
             res.send(result)
         })
@@ -65,7 +83,14 @@ app.get('/produse',(req,res) => {
     /*res.render('produse');*/
 });
 app.get('/Stock',(req,res) => {
-    res.render('Stock');
+    db.collection('produs').find().toArray()
+        .then((results)=>{
+            res.render('Stock.ejs',{ produs: results})
+        })
+        .catch((err)=>{
+            console.log(err);
+        })
+   /* res.render('Stock');*/
 });
 app.get('/customers',(req,res) => {
     res.render('customers');
