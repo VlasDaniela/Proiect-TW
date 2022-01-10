@@ -13,7 +13,7 @@ const app = express();
 //connect to mongodb
 const dbURI = 'mongodb+srv://daniela:1234@nodeclust.hbjwr.mongodb.net/node-tuts?retryWrites=true&w=majority'
 mongoose.connect(dbURI)
-    .then((result)=> app.listen(3001))
+    .then((result)=> app.listen(3000))
     .catch((err)=> console.log(err));
 
 //listen 
@@ -73,6 +73,12 @@ app.get('/',(req,res) => {
 app.get('/index',(req,res) => {
     res.render('index');
 });
+app.get('/despre',(req,res) => {
+    res.render('despre');
+});
+app.get('/coscumparaturi',(req,res) => {
+    res.render('coscumparaturi');
+});
 app.get('/produse',(req,res) => {
     db.collection('produs').find().toArray()
         .then((results)=>{
@@ -128,30 +134,14 @@ app.get('/customers',(req,res) => {
     })
     // res.render('customers');
 });
-app.get('/Stock/:id', (req, res) => {
-    const id = req.params.id;
-    Produs.findById(id)
-      .then(result => {
-        res.render('Stock');
-      })
-      .catch(err => {
-        console.log(err);
-      });
-  });
-app.delete('/Stock/:id', (req, res) => {
-    const id = req.params.id;
-    
-    Produs.findByIdAndDelete(id)
-      .then(result => {
-        res.json({ redirect: '/Stock' });
-      })
-      .catch(err => {
-        console.log(err);
-      });
-  });
 app.get('/add-produs',(req,res) => {
     res.render('add-produs');
 });
 app.get('/add-companie',(req,res) => {
     res.render('add-companie');
 });
+
+
+
+
+
