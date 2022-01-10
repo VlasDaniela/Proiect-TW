@@ -30,16 +30,16 @@
                            <span onclick="register()">Register</span>
                            <hr id="Indicator">
                        </div>
-                       <form id="LoginForm">
-                           <input type="text" placeholder="Numele utilizatorului">
-                           <input type="password" placeholder="Parola">
+                       <form id="LoginForm" action="/login" method="POST">
+                           <input id="user" type="text" placeholder="Numele utilizatorului" name="nume">
+                           <input id="password" type="password" placeholder="Parola" name="parola">
                            <button type="submit" class="btn">Autentificare</button>
                            <a href="">Ai uitat parola?</a>
                        </form>
-                        <form id="RegForm">
-                           <input type="text" placeholder="Numele utilizatorului">
-                             <input type="email" placeholder="Email">
-                           <input type="password" placeholder="Parola">
+                        <form id="RegForm" action="/register" method="POST">
+                           <input id="nume"type="text" placeholder="Numele utilizatorului" name="nume">
+                           <input id="email" type="email" placeholder="Email" name="email">
+                           <input id="parola" type="password" placeholder="Parola" name="parola">
                            <button type="submit" class="btn">Înregistrare</button>
                           
                        </form>
@@ -70,6 +70,15 @@
         var LoginForm = document.getElementById("LoginForm");
         var RegForm = document.getElementById("RegForm");
         var Indicator = document.getElementById("Indicator");
+        var nume = document.getElementById("nume");
+        var password = document.getElementById("password");
+        var user = document.getElementById("user");
+        var mail = document.getElementById("mail");
+        var parola = document.getElementById("parola");
+        var register = document.getElementById("register");
+
+
+
         function register(){
             RegForm.style.transform="translateX(0px)";
             LoginForm.style.transform="translateX(0px)";
@@ -80,6 +89,38 @@
             LoginForm.style.transform="translateX(300px)";
             Indicator.style.transform="translateX(0px)";
         }
+
+        LoginForm.addEventListener("submit",() => {
+            console.log(nume.value);
+            console.log(password.value);
+        })
+        // register.addEventListener("click",() => {
+        //     console.log(user.value);
+        //     console.log(mail.value);
+        //     console.log(parola.value);
+
+        //     var data = {
+        //         user:user.value,
+        //         mail:mail.value,
+        //         parola:parola.value
+        //     }
+
+        //     fetch('http://localhost:3000/register', {
+        //          method: 'POST',
+        //          headers: {
+        //             'Content-Type': 'application/json'
+        //             // 'Content-Type': 'application/x-www-form-urlencoded',
+        //             },
+        //          body: JSON.stringify(data)
+        //     })
+        //     .then(response => response.json())
+        //     .then(result => {
+        //         console.log('Success:', result);
+        //     })
+        //     .catch(error => {
+        //         console.error('Error:', error);
+        //     });
+        // })
     </script>
    
 </body>

@@ -41,22 +41,28 @@
       <td><%= produs[i]._id %></td>
       <td><%= produs[i].price %></td>
     </a>
-    <td><input type="button" class="button1" value="Modifica Produs"><a class="button2" data-doc="<%= produs[i]._id %>">Sterge Produs</a></td>
+    <td><input type="button" class="button1" value="Modifica Produs"><a href="/stock/delete/<%= produs[i]._id %>"> Sterge Produs </a></td>
     
   </tr>
 <% } %>             
      </table>
      <script>
-      const trashcan = document.querySelector('a.delete');
-      trashcan.addEventListener('click', (e) => {
-        const endpoint = `/Stock/${trashcan.dataset.doc}`;
-        fetch(endpoint, {
-          method: 'DELETE',
-        })
-        .then(response => response.json())
-        .then(data => window.location.href = data.redirect)
-        .catch(err => console.log(err));
-      });
+
+      var deleteprod=(id) => {
+        var element = document.getElementById(id);
+        element.parentNode.removeChild(element);
+      }
+
+      // const trashcan = document.querySelector('a.delete');
+      // trashcan.addEventListener('click', (e) => {
+      //   const endpoint = `/Stock/${trashcan.dataset.doc}`;
+      //   fetch(endpoint, {
+      //     method: 'DELETE',
+      //   })
+      //   .then(response => response.json())
+      //   .then(data => window.location.href = data.redirect)
+      //   .catch(err => console.log(err));
+      // });
       
     </script>
      </body>

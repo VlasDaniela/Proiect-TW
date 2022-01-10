@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const Produs = require('./models/produs');
 const { db } = require('./models/produs');
 const Companie = require('./models/companie');
+const User = require('./models/user');
 
 
 
@@ -23,49 +24,6 @@ app.set('view engine', 'ejs');
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan('dev'));
-
-/*app.get('/add-produs',(req,res)=>{
-    const produs = new Produs({
-        title:'Ziant',
-        price:'21' ,
-        cantitate: '800',
-        expir_date: '02.01.2022'
-    })
-    
-    produs.save()
-        .then((result)=>{
-            res.send(result)
-        })
-        .catch((err)=>{
-            console.log(err);
-        })
-});
-app.get('/all-produse',(req,res)=>{
-    Produs.find()
-        .then((result)=>{
-            res.send(result)
-        })
-        .catch((err)=>{
-            console.log(err);
-        })
-});
-app.get('/add-s',(req,res)=>{
-    const s = new s({
-        nume_comp: 'HOFFMANN LA ROCHE',	
-        nr_telefon: '0712345678',
-        adressa: 'Strada Cetatii',
-        nume_manager: 'Moldovan Gabriela'
-    })
-    
-    s.save()
-        .then((result)=>{
-            res.send(result)
-        })
-        .catch((err)=>{
-            console.log(err);
-        })
-});*/
-
 
 app.get('/',(req,res) => {
     res.render('account');
@@ -100,7 +58,7 @@ app.get('/Stock',(req,res) => {
    /* res.render('Stock');*/
 });
 app.post('/Stock', (req, res) => {
-    // console.log(req.body);
+    console.log(req.body);
     const produs = new Produs(req.body);
   
     produs.save()
@@ -110,6 +68,7 @@ app.post('/Stock', (req, res) => {
       .catch(err => {
         console.log(err);
       });
+    
   });
   app.post('/customers', (req, res) => {
     // console.log(req.body);
@@ -137,8 +96,51 @@ app.get('/customers',(req,res) => {
 app.get('/add-produs',(req,res) => {
     res.render('add-produs');
 });
+app.get('/register',(req,res) => {
+    res.render('register.ejs');
+});
+app.post('/register',(req,res) => {
+   console.log(req.body);
+
+   const user= new User(req.body);
+  
+    user.save()
+      .then(result => {
+        res.redirect('/');
+      })
+      .catch(err => {
+        console.log(err);
+      });
+});
+app.post('/login',(req,res) => {
+    db.collection('users').find({nume:req.body.nume},{parola:req.body.parola}).toArray()
+    .then((result)=>{
+        console.log(result);
+        if(result && result.length)
+            {res.redirect('/produse')}
+        else
+            {res.redirect('/')}
+    })
+    .catch((err)=>{
+        console.log(err);
+    })
+
+});
 app.get('/add-companie',(req,res) => {
     res.render('add-companie');
+});
+app.get('/stock/delete/:id',(req,res) => {
+    console.log(req.params.id)
+    db.collection("produs").remove({
+        _id:req.params.id
+    })
+    .then((result)=>{
+        console.log(result);
+        res.redirect("/stock")
+    })
+    .catch((err)=>{
+        console.log(err);
+    })
 });
 
 
