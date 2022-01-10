@@ -34,17 +34,31 @@
         <% } %>
 <% for(var i = 0; i < produs.length; i++) { %>
   <tr>
-    <td><%= produs[i].title %></td>
-    <td><%= produs[i].expir_date %></td>
-    <td><%= produs[i].cantitate %></td>
-    <td><%= produs[i]._id %></td>
-    <td><%= produs[i].price %></td>
-    <td><input type="button" class="button1" value="Modifica Produs"><input type="button" class="button2" value="Sterge Produs"></td>
+    <a href="/Stock/<%= produs._id %>"></a>
+      <td><%= produs[i].title %></td>
+      <td><%= produs[i].expir_date %></td>
+      <td><%= produs[i].cantitate %></td>
+      <td><%= produs[i]._id %></td>
+      <td><%= produs[i].price %></td>
+    </a>
+    <td><input type="button" class="button1" value="Modifica Produs"><a class="button2" data-doc="<%= produs[i]._id %>">Sterge Produs</a></td>
     
   </tr>
 <% } %>             
      </table>
-
+     <script>
+      const trashcan = document.querySelector('a.delete');
+      trashcan.addEventListener('click', (e) => {
+        const endpoint = `/Stock/${trashcan.dataset.doc}`;
+        fetch(endpoint, {
+          method: 'DELETE',
+        })
+        .then(response => response.json())
+        .then(data => window.location.href = data.redirect)
+        .catch(err => console.log(err));
+      });
+      
+    </script>
      </body>
      </html>
      
