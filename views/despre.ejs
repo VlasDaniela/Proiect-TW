@@ -1,0 +1,104 @@
+
+<html lang="en">
+    
+  <%- include("./partials/head.ejs") %>
+  
+  <body>
+      <div class="header">
+     <div class="container">
+  <div class="navbar">
+      <div class="logo">
+          <a href="index.ejs"></a>
+  
+      </div>
+      <%- include("./partials/nav.ejs") %>
+      
+    <img src="geanta.jpg" width="30px" height="30px">
+    </div>
+<div class="row">
+    <div class="col-12 full-width">
+           
+<h2>Despre Farmacia PHARFM</h2>
+<br>
+<br>
+
+<p>   Reteaua de Farmacii PHARM este detinuta de S.C. SIEPCOFAR S.A. – o companie cu capital 100% romanesc. Farmaciile PHARM sunt printre cele mai apreciate din Romania, cu o traditie de peste 30 de ani si o distributie echilibrata, la nivel national.</p>
+<p>Investitiile continue in cursuri de formare si specializare pentru angajati, punerea la dispozitia pacientilor a unui portofoliu variat (format atat din medicamente, cat si din produse parafarmaceutice si cosmetice), ofertele comerciale competitive si campaniile de educare, informare si preventie, precum si oferirea tuturor informatiilor necesare administrarii optime si sigure a medicamentelor, vizand doar interesul medical al pacientilor, ne recomanda ca pe un partener pe termen lung.</p>
+<p>In Farmaciile Pharm vei fi intampinat intotdeauna cu atentie, grija, dar mai ales cu respect.</p>
+
+<br>
+<br>
+<h4>Farmaciile PHARM in cateva cuvinte:</h4>
+<p>• Societate pe actiuni – capital integral romanesc<br>
+• Anul infiintarii 1992<br>
+• Retea farmacii – peste 100<br>
+• Pacienti care ne viziteaza lunar – peste 2,7 milioane<br>
+• Angajati peste 1500</p>
+    </div>
+  </div>
+
+<br>
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-md-6 col-lg-3 cardz">
+        <h5>Informatii</h5>
+        <div class="menu-informatii-container"><ul id="menu-informatii" class="menu"><li id="menu-item-497" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-497"><a href="#">Termeni si conditii</a></li>
+<li id="menu-item-498" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-498"><a href="#">Prelucrarea datelor cu carcater personal</a></li>
+<li id="menu-item-498" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-498"><a href="#">Politica de confidentialitate</a></li>
+
+
+
+</ul></div>      </div>
+      <div class="col-12 col-md-6 col-lg-3 cardz">
+        <h5>Devino fanul nostru</h5>
+        <div class="menu-devino-fanul-nostru-container"><ul id="menu-devino-fanul-nostru" class="menu"><li id="menu-item-60" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-60"><a target="_blank" href="#">Youtube</a></li>
+<li id="menu-item-61" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-61"><a target="_blank" href="#">Facebook</a></li>
+<li id="menu-item-957" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-957"><a href="#">Instagram</a></li>
+</ul></div>      </div>
+      <div class="col-12 col-md-6 col-lg-3 cardz">
+        <h5>Resurse Utile</h5>
+        <div class="menu-resurse-utile-container"><ul id="menu-resurse-utile" class="menu"><li id="menu-item-63" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-63"><a href="#">Cariere Pharm</a></li>
+<li id="menu-item-64" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-64"><a href="#">Card de fidelitate</a></li>
+<li id="menu-item-66" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-66"><a href="#">Cauta o farmacie</a></li>
+</ul></div>      </div>
+      <div class="col-12 col-md-6 col-lg-3 cardz">
+        <h5>Relatii cu clientii</h5>
+        <ul>
+          <li>Str. Primaverii Nr. 20, parter, Timisoara</li>
+          <li><a href="tel:0765 014 992 L - V 09:00 - 13:00, 14:00 - 16:00">0724 014 983 L - V 09:00 - 13:00, 14:00 - 16:00</a></li>
+          <li><a href="mailto:office@farmaciapharm.ro">office@farmaciapharm.ro</a></li>
+          <!-- <li></li> -->
+        </ul>
+      </div>
+    </div>
+  </div>
+<br>
+  
+</footer>
+
+    </div>
+    </div>
+    </div>
+
+
+
+
+    <!------js for toggle menu----->
+    <script>
+        var MenuItems = document.getElementById("MenuItems");
+        MenuItems.style.maxHeight = "0px";
+        function menutoggle(){
+            if(MenuItems.style.maxHeight == "0px")
+                {
+                    MenuItems.style.maxHeight = "200px";
+                }
+            else{
+                MenuItems.style.maxHeight = "0px";
+                
+            }
+        }
+    </script>
+</body>
+
+</html>
